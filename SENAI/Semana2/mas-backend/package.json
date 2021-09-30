@@ -1,0 +1,8 @@
+{
+  "name": "mas-backend",
+  "version": "1.0.0",
+  "description": "api for web aplication",
+  "main": "server.ts",
+  "author": "Candice Leon",
+  "license": "MIT"
+}
