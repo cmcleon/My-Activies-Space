@@ -23,7 +23,12 @@ export class CreateActivities1633897106167 implements MigrationInterface {
 
                     },
                     {
-                        name: "course_unit_id",
+                        name: "grade",
+                        type: "number"
+
+                    },
+                    {
+                        name: "courseUnitId",
                         type: "varchar"
 
                     },

@@ -1,19 +1,31 @@
 import{getRepository} from 'typeorm'
+import { ExclusionMetadata } from 'typeorm/metadata/ExclusionMetadata';
 import {Activy} from '../models/Activy'
 
 interface ActivyData{
     name:string;
     activy_date:string;
-    course_unit_id:string;
+    grade: number;
+    courseUnitId:string;
 }
 
 class CreateActivyService{
-    public async execute({name, activy_date, course_unit_id}: ActivyData){
+    public async execute(data: ActivyData){
+        const {name, activy_date, grade, courseUnitId} = data;
         const activyRepository = getRepository(Activy);
+        const checkActivyToCourseExists = await activyRepository.findOne({name, courseUnitId});
+
+        if (checkActivyToCourseExists){
+            return{
+                error: "Activy to Course Unit already exist."
+            }
+        }
+        
         const activy = activyRepository.create({
             name,
             activy_date,
-            course_unit_id
+            grade,
+            courseUnitId
         });
 
         await activyRepository.save(activy);
@@ -21,4 +33,4 @@ class CreateActivyService{
     }
 
 }
-export {CreateActivyService}
+export {CreateActivyService};

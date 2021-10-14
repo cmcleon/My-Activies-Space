@@ -2,6 +2,7 @@ import {Column, CreateDateColumn, Entity, OneToMany, PrimaryColumn} from 'typeor
 import {v4 as uuid} from 'uuid'
 import { Activy } from './Activy'
 
+@Entity("courseUnit")
 class CourseUnit{
     constructor(){
         if(!this.id){
@@ -19,8 +20,8 @@ class CourseUnit{
     @Column()
     description: string;
 
-    @Column()
-    created_at: string;
+    @CreateDateColumn()
+    created_at: Date;
 
     @OneToMany(()=> Activy, activy => activy.course_unit)
     activies: Activy[]
