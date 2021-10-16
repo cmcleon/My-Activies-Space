@@ -30,7 +30,7 @@ class AuthenticateUserService{
 
         const token = sign({"role":"user"}, secret, {
             subject: user.id,
-            expiresIn: '1d',
+            expiresIn
         });
         return token;
 
