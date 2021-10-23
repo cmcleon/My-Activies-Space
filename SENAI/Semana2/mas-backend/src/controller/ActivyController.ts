@@ -2,7 +2,7 @@ import {Request, Response} from 'express'
 import {CreateActivyService} from '../services/CreateActivyService'
 
 
-class UserController{
+class ActivyController{
     async create (request:Request, response:Response){
         const activyData = request.body
 
@@ -14,4 +14,4 @@ class UserController{
     } 
 }
 
-export {UserController}
+export {ActivyController}
