@@ -9,7 +9,7 @@ class GetUserService{
     public async execute({id}:UserId){
         const usersRepository = getRepository(User);
         
-        const users = usersRepository.find();
+        const users = usersRepository.findOne({id});
 
         if(!users){
             return{
