@@ -9,8 +9,8 @@ class AuthenticateController{
         const auth = await authenticateUser.execute(authData);
 
         return response.json(auth);
-
     }
+   
 
 }
 
