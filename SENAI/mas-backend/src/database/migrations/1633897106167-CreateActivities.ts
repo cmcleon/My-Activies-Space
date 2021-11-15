@@ -1,51 +1,52 @@
 import {MigrationInterface, QueryRunner, Table} from "typeorm";
 
-export class CreateActivities1633897106167 implements MigrationInterface {
+export class CreateActivies1617819129667 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.createTable(
             new Table({
-                name: "activities",
-                columns:[
+                name:"activies",
+                columns: [
                     {
-                        name: "id",
-                        type: "varchar",
-                        isPrimary: true
+                        name:"id",
+                        type:"varchar",
+                        isPrimary: true,
                     },
                     {
-                        name: "name",
-                        type: "varchar",
-
+                        name:"name",
+                        type:"varchar",
                     },
                     {
-                        name: "activy_date",
-                        type: "date"
-
+                        name:"activy_date",
+                        type:"timestamp",
                     },
                     {
-                        name: "grade",
-                        type: "number"
-
+                        name:"grade",
+                        type:"decimal",
                     },
                     {
-                        name: "courseUnitId",
-                        type: "varchar"
-
+                        name:"courseUnitId",
+                        type:"varchar",
                     },
                     {
-                        name: "created_at",
-                        type: "timestamp",
-                        default: "now()",
+                        name:"created_at",
+                        type:"timestamp",
+                        default:"now()",
                     }
-
+                ],
+                foreignKeys: [
+                    {
+                        name:'ActivyCourseUnit',
+                        referencedTableName:'course_units',
+                        referencedColumnNames: ['id'],
+                        columnNames: ['courseUnitId']
+                    }
                 ]
             })
         )
-    
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.dropTable("activities");
     }
 
 }
