@@ -5,13 +5,13 @@ import { GetCourseUnitService } from '../services/GetCourseUnitService';
 
 class CourseUnitController{
     async create (request:Request, response:Response){
-        const courseData = request.body
+        const courseUnitData = request.body
 
-        const createCourseUnitService = new CreateCourseUnitService()
+        const createCourseUnitService = new CreateCourseUnitService();
 
-        const user = await createCourseUnitService.execute(courseData);
+        const courseUnit = await createCourseUnitService.execute(courseUnitData);
 
-        return response.json(courseData);
+        return response.json(courseUnit);
     } 
 
     async show(request:Request, response:Response){

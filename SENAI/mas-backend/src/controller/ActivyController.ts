@@ -1,5 +1,5 @@
 import {Request, Response} from 'express'
-import {CreateActivyService} from '../services/CreateActivyService'
+import {CreateActivyService} from '../services/CreateActivyService';
 import { GetActivyService } from '../services/GetActivyService';
 
 
@@ -8,7 +8,6 @@ class ActivyController{
         const activyData = request.body
         const createActivy = new CreateActivyService()
         const activy = await createActivy.execute(activyData);
-
         return response.json(activy);
     } 
 

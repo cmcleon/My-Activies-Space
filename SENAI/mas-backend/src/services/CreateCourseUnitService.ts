@@ -28,4 +28,4 @@ class CreateCourseUnitService{
     }
 
 }
-export {CreateCourseUnitService}
+export {CreateCourseUnitService};

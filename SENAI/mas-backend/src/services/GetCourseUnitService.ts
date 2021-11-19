@@ -9,7 +9,7 @@ class GetCourseUnitService{
     public async execute({id}:UserId){
         const courseUnitRepository = getRepository(CourseUnit);
         
-        const coursesUnits = courseUnitRepository.find();
+        const coursesUnits = courseUnitRepository.findOne({id});
 
         if(!coursesUnits){
             return{
