@@ -1,4 +1,4 @@
-import { NextFunction, request, Request, Response} from "express";
+import { NextFunction, Request, Response} from "express";
 import { verify } from "jsonwebtoken";
 import authConfig from '../config/auth';
 
@@ -7,7 +7,7 @@ interface Token{
     role: string;
 }
 
-export default function authenticated(eesquest: Request, response: Response, next: NextFunction){
+export default function authenticated(request: Request, response: Response, next: NextFunction){
     const headerAuthorization = request.headers.authorization
     if(!headerAuthorization){
         return{
